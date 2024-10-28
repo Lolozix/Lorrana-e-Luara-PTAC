@@ -1,6 +1,10 @@
-id: int
-usuario_id: int
-mesa_id: int
-data: date
-n_pessoas: int
-status: boolean
+interface Reserva{
+    id: int
+    usuario_id: int
+    mesa_id: int
+    data: date
+    n_pessoas: int
+    status: boolean
+}
+
+export default Reserva;

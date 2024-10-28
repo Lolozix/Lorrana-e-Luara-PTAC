@@ -9,10 +9,11 @@ const PaginaInicial = () => {
 
   return (
     <div>
-      <h1>Página Inicial</h1>
+      <h1>Nome: {usuario.nome}</h1>
       <PerfilUsuario usuario={usuario} />
+      <p> Idade: {usuario.idade}</p>
     </div>
-  );
+  )
 };
 
 export default PaginaInicial;
