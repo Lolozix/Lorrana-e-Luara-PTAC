@@ -1,19 +1,24 @@
-import PerfilUsuario from '../components/Perfil/PerfilUsuario';
+import React from 'react';
 
-const PaginaInicial = () => {
-  const usuario = {
-    nome: 'João Silva',
-    idade: 28,
-    email: 'joao.silva@example.com'
-  };
+interface Usuario {
+    nome: string;
+    idade: number;
+    email: string;
+}
 
-  return (
-    <div>
-      <h1>Nome: {usuario.nome}</h1>
-      <PerfilUsuario usuario={usuario} />
-      <p> Idade: {usuario.idade}</p>
-    </div>
-  )
+interface PerfilUsuarioProps {
+    usuario: Usuario;
+}
+
+const PerfilUsuario: React.FC<PerfilUsuarioProps> = ({ usuario }) => {
+    return (
+        <div>
+            <h2>Perfil do Usuário</h2>
+            <p>Nome: {usuario.nome}</p>
+            <p>Idade: {usuario.idade}</p>
+            <p>Email: {usuario.email}</p>
+        </div>
+    );
 };
 
-export default PaginaInicial;
+export default PerfilUsuario;
