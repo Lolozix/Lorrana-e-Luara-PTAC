@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import style from "../styles/cadastro.module.css";
-import botao from "../Botao"
+import Botao from "../Botao";
 
 export default function PaginaDeCadrastro() {
   const [email, setEmail] = useState<string>("");
