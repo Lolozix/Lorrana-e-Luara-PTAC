@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import style from "../styles/cadastro.module.css";
+import botao from "../Botao"
 
 export default function PaginaDeCadrastro() {
   const [email, setEmail] = useState<string>("");
@@ -14,9 +15,9 @@ export default function PaginaDeCadrastro() {
 
   return (
     <div className={style.container}>
-      <h1 className={style.title}>Cadrastro</h1>
       <form onSubmit={handleSubmit} className={style.form}>
         <div className={style.inputGroup}>
+          <h1 className={style.title}>Cadrastro</h1>
           <label className={style.label}>Digite seu e-mail</label>
           <input
             type="email"

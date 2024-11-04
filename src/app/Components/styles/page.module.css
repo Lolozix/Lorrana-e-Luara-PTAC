@@ -1,27 +1,21 @@
-.page {
-    color: black;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    flex-direction: column;
-}
-
-.titulo {
-    font-size: 24px;
-    margin-bottom: 20px;
+.perfil {
+    padding: 20px;
+  }
+  
+  .perfil h2 {
     text-align: center;
-}
-
-
-.botao {
-    color: #007bff;
-    background: none;
+  }
+  
+  .perfil p {
+    margin-bottom: 10px;
+  }
+  
+  .perfil button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
     border: none;
-    text-decoration: underline;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-}
+    margin: 5px;
+  }
