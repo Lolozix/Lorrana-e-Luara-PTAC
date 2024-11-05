@@ -1,10 +1,12 @@
-import React from 'react';
-import Cadastro from './Components/PaginaDeCadastro/page';
+'use client';
 
-export default function Home() {
-    return(
-        <div>
-            <Cadastro/>
-        </div>
-    );
+import React from 'react';
+import PaginaHome from './Components/PaginaHome/PaginaHome';
+
+export default function HomePage() {
+  return (
+    <div>
+      <PaginaHome />
+    </div>
+  );
 }
