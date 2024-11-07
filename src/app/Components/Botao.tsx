@@ -1,6 +1,6 @@
-import styles from "../styles/login.module.css"; 
-
-type BotaoProp = {
+ import styles from "src/app/PaginaDeCadastro/page.module.css"
+ 
+ type BotaoProp = {
     titulo: string,
     botao: () => void
 }
