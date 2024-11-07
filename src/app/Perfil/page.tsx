@@ -4,7 +4,7 @@ import Usuario from "../Interfaces/usuario";
 
 const Perfil = () => {
   const [usuario, setUsuario] = useState<Usuario>({
-    nome: "Lorrana linda",
+    nome: "Lorrana e Luara",
     idade: 17, 
   })
 

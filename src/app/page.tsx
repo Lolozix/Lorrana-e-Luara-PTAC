@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import PaginaHome from './Components/PaginaHome/PaginaHome';
+import PaginaHome from './PaginaHome/PaginaHome';
 
 export default function HomePage() {
   return (

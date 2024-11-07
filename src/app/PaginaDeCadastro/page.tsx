@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import style from "../styles/cadastro.module.css";
+import style from "./page.module.css";
 
 export default function PaginaDeCadastro() {
   const [email, setEmail] = useState("");
