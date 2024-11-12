@@ -1,4 +1,4 @@
- import styles from "src/app/PaginaDeCadastro/page.module.css"
+ import styles from "../PaginaDeCadastro/page.module.css"
  
  type BotaoProp = {
     titulo: string,

@@ -4,7 +4,6 @@ interface Usuario {
   email?: string;
   password?: string;
   tipo?: string;
-  idade?: number;
 }
 
 export default Usuario;
