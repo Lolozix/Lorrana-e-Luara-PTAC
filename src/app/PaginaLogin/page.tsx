@@ -57,7 +57,7 @@ export default function Login() {
       }
   } 
     catch (error) {
-    console.error('Erro na requisicao', error)
+    console.log('Erro na requisicao', error)
   }
 }
 

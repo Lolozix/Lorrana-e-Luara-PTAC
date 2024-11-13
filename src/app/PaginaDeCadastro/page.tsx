@@ -6,12 +6,13 @@ import Usuario from "../Interfaces/usuario";
 import style from "./page.module.css";
 import { parseCookies, setCookie } from "nookies";
 import { ApiURL } from "../../../config";
+import { error } from "console";
 
 
 interface ResponseSignin {
   erro: boolean,
   mensagem: string,
-  token?: string 
+  token?: string
 }
 
 export default function Cadastrar() {
@@ -45,7 +46,7 @@ export default function Cadastrar() {
     }));
   };
 
-  
+
   useEffect(() => {
     const { 'restaurant-token': token } = parseCookies();
     if (token) {
@@ -53,39 +54,41 @@ export default function Cadastrar() {
     }
   }, [router]);
 
-  const  handleSubmit = async (e : FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
     try {
-     const response = await fetch(`${ApiURL}/auth/cadastro`, {
-      method: 'POST',
-      headers: {
-        'Content-Type' : 'application/json'
-      },
-      body: JSON.stringify({nome: usuario.nome, email: usuario.email, password: usuario.password})
-     })
-      if (response){
-        const data : ResponseSignin = await response.json()
-        const {erro, mensagem, token = ''} = data;
+      const response = await fetch(`${ApiURL}/auth/cadastro`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nome: usuario.nome, email: usuario.email, password: usuario.password })
+      })
+   
+      
+      
+      if (response) {
+        const data: ResponseSignin = await response.json()
+        const { erro, mensagem, token = '' } = data;
         console.log(data)
-        if (erro){
+        if (erro) {
           setError(mensagem)
         } else {
-   
+
           setCookie(undefined, 'restaurant-token', token, {
-            maxAge: 60*60*1 // 1 hora
-          } )
+            maxAge: 60 * 60 * 1
+          })
 
           router.push('/')
-
         }
       } else {
-
       }
-  } 
+    }
     catch (error) {
-    console.error('Erro na requisicao', error)
+      console.log('Erro na requisicao', error)
+    }
   }
-}
 
 
   return (
