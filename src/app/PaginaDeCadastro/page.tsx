@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Usuario from "../Interfaces/usuario";
-import Botao from "../Components/Botao";
+import style from "./page.module.css";
 
 export default function Cadastrar() {
   const [usuario, setUsuario] = useState<Usuario>({
@@ -11,7 +11,7 @@ export default function Cadastrar() {
     email: "",
     password: "",
   });
-  
+
   const [erro, setErro] = useState("");
   const router = useRouter();
 
@@ -36,43 +36,60 @@ export default function Cadastrar() {
     }));
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!usuario.nome || !usuario.email || !usuario.password) {
+      setErro("Por favor, preencha todos os campos.");
+      return;
+    }
+    
+    console.log("Usuário cadastrado:", usuario);
+    router.push("/sucesso"); 
+  };
+
   return (
-    <div style={{ maxWidth: 400, margin: "0 auto", padding: "20px" }}>
-      <h2>Cadastro</h2>
-      {erro && <p style={{ color: "red" }}>{erro}</p>}
-      <form>
-        <div>
-          <label htmlFor="nome">Nome:</label>
-          <input
-            type="text"
-            id="nome"
-            value={usuario.nome}
-            onChange={(e) => trocaNome(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={usuario.email}
-            onChange={(e) => trocaEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="senha">Senha:</label>
-          <input
-            type="password"
-            id="senha"
-            value={usuario.password}
-            onChange={(e) => trocaSenha(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Cadastrar</button>
-      </form>
+    <div className={style.container}>
+      <div className={style.form}>
+        <h2 className={style.title}>Cadastro</h2>
+        {erro && <p className={style.error}>{erro}</p>}
+        <form onSubmit={handleSubmit}>
+          <div className={style.inputgroup}>
+            <label htmlFor="nome" className={style.label}>Nome:</label>
+            <input
+              className={style.input}
+              type="text"
+              id="nome"
+              value={usuario.nome}
+              onChange={(e) => trocaNome(e.target.value)}
+              required
+            />
+          </div>
+          <div className={style.inputgroup}>
+            <label htmlFor="email" className={style.label}>Email:</label>
+            <input
+              className={style.input}
+              type="email"
+              id="email"
+              value={usuario.email}
+              onChange={(e) => trocaEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className={style.inputgroup}>
+            <label htmlFor="senha" className={style.label}>Senha:</label>
+            <input
+              className={style.input}
+              type="password"
+              id="senha"
+              value={usuario.password}
+              onChange={(e) => trocaSenha(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className={style.btn}>Cadastrar</button>
+        </form>
+      </div>
     </div>
   );
 }

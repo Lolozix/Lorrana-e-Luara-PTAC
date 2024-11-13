@@ -11,18 +11,19 @@
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .title {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 30px;
-  color: #333;
+  color: #1b2a8d;
   font-family: 'Montserrat', sans-serif;
 }
 
-.input-group {
+.inputgroup {
   margin-bottom: 25px;
 }
 
@@ -62,4 +63,9 @@
 
 .btn:hover {
   background: rgba(0, 105, 217, 0.371);
+}
+
+.error {
+  color: red;
+  margin-bottom: 20px;
 }
