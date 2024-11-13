@@ -1,49 +1,44 @@
-.container {
+   .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+    height: 100vh;
+    background-color: #5e8bd9;
     padding: 20px;
   }
   
+
   .buttonscontainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
     text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
   }
   
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+
   .btn {
     display: inline-block;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    background: #007bff;
-    color: #fff;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    margin: 10px 0;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    text-align: center;
-    width: 200px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .btn:hover {
-    background: rgba(0, 105, 217, 0.7);
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-  }
-  
-  .btn:focus, .btn:hover {
-    outline: none;
-    transform: translateY(-2px);
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    color: #1b2a8d;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 40px;
-    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    width: 100%;
   }
   

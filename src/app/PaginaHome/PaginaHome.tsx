@@ -9,8 +9,8 @@ const PaginaHome = () => {
   const [user, setUser] = useState(true);
   const router = useRouter();
 
-  // Debug: Verificar as classes importadas
-  console.log(style);  // Adicione isso para verificar as classes importadas
+
+  console.log(style); 
 
   if (user) {
     return (
@@ -22,6 +22,8 @@ const PaginaHome = () => {
             className={style.btn}
             botao={() => router.push('/PaginaLogin')}
           />
+          <br/>
+          <br/>
           <Botao
             titulo="Fazer cadastro"
             botao={() => router.push('/PaginaDeCadastro')}
@@ -31,6 +33,7 @@ const PaginaHome = () => {
       </div>
     );
   }
+
   return null;
 };
 
