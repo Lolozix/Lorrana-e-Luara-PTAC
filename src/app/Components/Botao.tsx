@@ -7,7 +7,7 @@
 
 const Botao: React.FC<BotaoProp> = ({titulo, botao}) => {
     return (
-        <button className={styles.botao} onClick={botao}>
+        <button className={styles.btn} onClick={botao}>
             {titulo}
         </button>
     );
