@@ -1,2 +1,4 @@
 node_modules
 .next
+src/app/PaginaLogin/page.tsx
+*.tsx
