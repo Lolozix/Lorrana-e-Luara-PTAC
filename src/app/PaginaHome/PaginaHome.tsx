@@ -9,9 +9,7 @@ const PaginaHome = () => {
   const [user, setUser] = useState(true);
   const router = useRouter();
 
-
-  console.log(style); 
-
+  // Lógica para mostrar ou não os botões dependendo do estado do usuário.
   if (user) {
     return (
       <div className={style.container}>
@@ -19,15 +17,13 @@ const PaginaHome = () => {
           <h1 className={style.title}>Bem-vindo!</h1>
           <Botao 
             titulo="Fazer login"
-            className={style.btn}
             botao={() => router.push('/PaginaLogin')}
           />
-          <br/>
-          <br/>
+          <br />
+          <br />
           <Botao
             titulo="Fazer cadastro"
             botao={() => router.push('/PaginaDeCadastro')}
-            className={style.btn}
           />
         </div>
       </div>
