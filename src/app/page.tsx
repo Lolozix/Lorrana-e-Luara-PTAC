@@ -14,12 +14,6 @@ export default function HomePage() {
 
   const router = useRouter()
 
-  useEffect(() =>  {
-    const { 'restaurant-token': token } = parseCookies();
-    if (!token) {
-      router.push('/PaginaLogin');
-    }
-  }, [router]);
 
   return (
     <div className={style.btnhover}>
