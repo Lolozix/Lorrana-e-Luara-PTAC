@@ -6,13 +6,11 @@ import Usuario from "../Interfaces/usuario";
 import style from "./page.module.css";
 import { parseCookies, setCookie } from "nookies";
 import { ApiURL } from "../../../config";
-import { error } from "console";
-
 
 interface ResponseSignin {
-  erro: boolean,
-  mensagem: string,
-  token?: string
+  erro: boolean;
+  mensagem: string;
+  token?: string;
 }
 
 export default function Cadastrar() {
@@ -22,7 +20,7 @@ export default function Cadastrar() {
     password: "",
   });
 
-  const [erro, setError] = useState("");
+  const [erro, setError] = useState<string>("");
   const router = useRouter();
 
   const trocaNome = (novoNome: string) => {
@@ -46,11 +44,10 @@ export default function Cadastrar() {
     }));
   };
 
-
   useEffect(() => {
-    const { 'restaurant-token': token } = parseCookies();
+    const { "restaurant-token": token } = parseCookies();
     if (token) {
-      router.push('/');
+      router.push("/");
     }
   }, [router]);
 
@@ -59,37 +56,42 @@ export default function Cadastrar() {
 
     try {
       const response = await fetch(`${ApiURL}/auth/cadastro`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nome: usuario.nome, email: usuario.email, password: usuario.password })
-      })
-   
-      
-      
-      if (response) {
-        const data: ResponseSignin = await response.json()
-        const { erro, mensagem, token = '' } = data;
-        console.log(data)
-        if (erro) {
-          setError(mensagem)
-        } else {
+        body: JSON.stringify({
+          nome: usuario.nome,
+          email: usuario.email,
+          password: usuario.password,
+        }),
+      });
 
-          setCookie(undefined, 'restaurant-token', token, {
-            maxAge: 60 * 60 * 1
-          })
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+      }
 
-          router.push('/')
-        }
+      const data: ResponseSignin = await response.json();
+      const { erro, mensagem, token = "" } = data;
+
+      if (erro) {
+        setError(mensagem);
       } else {
+        setCookie(undefined, "restaurant-token", token, {
+          maxAge: 60 * 60 * 1,
+        });
+
+        router.push("/");
+      }
+    } catch (error: any) {
+      console.error("Erro na requisição:", error);
+      setError(`Ocorreu um erro ao tentar realizar o cadastro. Detalhes: ${error.message}`);
+
+      if (error instanceof TypeError) {
+        setError("Erro ao conectar com o servidor. Verifique sua conexão.");
       }
     }
-    catch (error) {
-      console.log('Erro na requisicao', error)
-    }
-  }
-
+  };
 
   return (
     <div className={style.container}>
@@ -98,7 +100,9 @@ export default function Cadastrar() {
         {erro && <p className={style.error}>{erro}</p>}
         <form onSubmit={handleSubmit}>
           <div className={style.inputgroup}>
-            <label htmlFor="nome" className={style.label}>Nome:</label>
+            <label htmlFor="nome" className={style.label}>
+              Nome:
+            </label>
             <input
               className={style.input}
               type="text"
@@ -109,18 +113,22 @@ export default function Cadastrar() {
             />
           </div>
           <div className={style.inputgroup}>
-            <label htmlFor="email" className={style.label}>Email:</label>
+            <label htmlFor="email" className={style.label}>
+              Email:
+            </label>
             <input
               className={style.input}
               type="email"
-              id="email"
+              id="emaiAl"
               value={usuario.email}
               onChange={(e) => trocaEmail(e.target.value)}
               required
             />
           </div>
           <div className={style.inputgroup}>
-            <label htmlFor="senha" className={style.label}>Senha:</label>
+            <label htmlFor="senha" className={style.label}>
+              Senha:
+            </label>
             <input
               className={style.input}
               type="password"
@@ -130,7 +138,9 @@ export default function Cadastrar() {
               required
             />
           </div>
-          <button type="submit" className={style.btn}>Cadastrar</button>
+          <button type="submit" className={style.btn}>
+            Cadastrar
+          </button>
         </form>
       </div>
     </div>
