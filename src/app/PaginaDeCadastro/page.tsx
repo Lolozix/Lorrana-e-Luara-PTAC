@@ -66,11 +66,7 @@ export default function Cadastrar() {
           password: usuario.password,
         }),
       });
-
-      if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
-      }
-
+      console.log(response)
       const data: ResponseSignin = await response.json();
       const { erro, mensagem, token = "" } = data;
 
