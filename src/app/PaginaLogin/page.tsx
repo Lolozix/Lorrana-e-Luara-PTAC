@@ -6,6 +6,27 @@ import style from "./page.module.css";
 import { parseCookies, setCookie } from "nookies";
 import { ApiURL } from "../../../config";
 
+//const login = () => {
+  //const[email, setEmail]= useState()<string>('')
+  //const[password, setPassword] = useState()<string>('') 
+  
+  //async function handleSign() {
+    //e.preventDefault()
+    //console.log(email, password)
+  
+    //const res = await fetch('http://localhost:3000/PaginaLogin', {
+      //method: 'POST', 
+      //body: JSON.stringify({email,password})
+    //})
+
+   //console.log(res)
+   //const data = await res.json()
+   //console.log(data)
+
+//  }
+
+//}
+
 interface ResponseSignin {
   erro: boolean;
   mensagem: string;
@@ -87,6 +108,7 @@ export default function Login() {
               type="email"
               id="email"
               value={usuario.email}
+           //   onChange = {e => setEmail(e.target.value)}
               onChange={(e) => trocaEmail(e.target.value)}
               required
             />
@@ -98,6 +120,7 @@ export default function Login() {
               type="password"
               id="senha"
               value={usuario.password}
+        //      onChange = {e => setPassword(e.target.value)}
               onChange={(e) => trocaSenha(e.target.value)}
               required
             />
