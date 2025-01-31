@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState, useEffect, useActionState } from "react";
 import { useRouter } from "next/navigation";
 import style from "./page.module.css";
 import { parseCookies, setCookie } from "nookies";
@@ -9,10 +9,8 @@ import { ApiURL } from "../../../config";
 //const login = () => {
   //const[email, setEmail]= useState()<string>('')
   //const[password, setPassword] = useState()<string>('') 
+  //const [state, action, isPading] = useActionState(singup, {erro: false, mensagem: ''})
   
-  //async function handleSign() {
-    //e.preventDefault()
-    //console.log(email, password)
   
     //const res = await fetch('http://localhost:3000/PaginaLogin', {
       //method: 'POST', 
@@ -22,9 +20,7 @@ import { ApiURL } from "../../../config";
    //console.log(res)
    //const data = await res.json()
    //console.log(data)
-
 //  }
-
 //}
 
 interface ResponseSignin {
@@ -96,6 +92,8 @@ export default function Login() {
   };
 
   return (
+
+  //<form action={action}>
     <div className={style.container}>
       <div className={style.form}>
         <h2 className={style.title}>Login</h2>
@@ -113,6 +111,7 @@ export default function Login() {
               required
             />
           </div>
+    </form>
           <div className={style.inputgroup}>
             <label htmlFor="senha" className={style.label}>Senha:</label>
             <input
